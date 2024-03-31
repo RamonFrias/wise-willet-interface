@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./pages/header/Header.tsx";
+import HomePage from "./pages/home/HomePage.tsx";
+import UserPage from "./pages/user/UserPage.tsx";
 
 function App() {
   return (
-    <header>
-        <div>
-            <h3> LOGOTIPO </h3>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="cadastrar_usuario.html">Cadastrar Usuário</a></li>
-                <li><a href="cadastrar_comanda.html">Cadastrar Comanda</a></li>
-                <li><a href="cadastrar_mesas.html">Cadastrar Mesas</a></li>
-            </ul>
-        </nav>
-        <div class="user-info">
-            Ramon Frias
-        </div>
-    </header>
+    <BrowserRouter>
+        <Header/>
+        <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="/user" element={<UserPage/>}/>
+        </Routes>
+    </BrowserRouter>
   );
 }
 
