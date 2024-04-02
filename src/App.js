@@ -1,19 +1,25 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./pages/Administrator/header/Header.tsx";
+import HeaderAdmin from "./pages/Administrator/header/HeaderAdmin.tsx";
+import HeaderClient from "./pages/client/header/HeaderClient.tsx";
 import HomePage from "./pages/Administrator/home/HomePage.tsx";
 import UserPage from "./pages/Administrator/user/UserPage.tsx";
 import TablePage from "./pages/Administrator/table/TablePage.tsx";
 import CardPage from "./pages/Administrator/card/CardPage.tsx";
+import MenuPage from "./pages/client/menu/menu.tsx";
 
 function App() {
+  const isAdmin = false;
   return (
     <BrowserRouter>
-        <Header/>
+        {isAdmin ? <HeaderAdmin /> : <HeaderClient />}
         <Routes>
             <Route path="/" element={<HomePage/>}/>
-            <Route path="/user" element={<UserPage/>}/>
-            <Route path="/table" element={<TablePage/>}/>
-            <Route path="/card" element={<CardPage/>}/>
+            <Route path="/cadastrar_cliente" element={<UserPage/>}/>
+            <Route path="/cadastrar_mesa" element={<TablePage/>}/>
+            <Route path="/cadastrar_comanda" element={<CardPage/>}/>
+            <Route path="/consultar_comanda" element={<CardPage/>}/>
+            <Route path="/consultar_cardapio" element={<MenuPage/>}/>
+            <Route path="/gerar_conta" element={<CardPage/>}/>
         </Routes>
     </BrowserRouter>
   );

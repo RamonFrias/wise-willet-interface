@@ -1,0 +1,40 @@
+/* MenuItem.css */
+.menuItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.menuItem img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.itemDetails {
+    padding: 15px;
+}
+
+.itemDetails h3 {
+    margin-top: 0;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.addButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.addButton:hover {
+    background-color: #45a049;
+}

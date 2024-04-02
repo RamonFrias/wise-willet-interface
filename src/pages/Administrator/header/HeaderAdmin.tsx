@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+function HeaderAdmin() {
     return (
         <header>
             <div>
@@ -8,9 +8,9 @@ function Header() {
             </div>
             <nav>
                 <ul>
-                    <li><a href="user">Cadastrar Usuário</a></li>
-                    <li><a href="card">Cadastrar Comanda</a></li>
-                    <li><a href="table">Cadastrar Mesas</a></li>
+                    <li><a href="cadastrar_cliente">Cadastrar Cliente</a></li>
+                    <li><a href="cadastrar_comanda">Cadastrar Comanda</a></li>
+                    <li><a href="cadastrar_mesa">Cadastrar Mesas</a></li>
                 </ul>
             </nav>
             <div className="user-info">
@@ -20,4 +20,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default HeaderAdmin;

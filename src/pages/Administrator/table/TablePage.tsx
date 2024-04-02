@@ -29,6 +29,7 @@ function TablePage() {
                     <input 
                         type="text" 
                         id="numeroMesa" 
+                        placeholder="Informe o numero da mesa"
                         value={numeroMesa} 
                         onChange={(e) => setNumeroMesa(e.target.value)} 
                         required 
@@ -41,6 +42,7 @@ function TablePage() {
                         id="quantidadePessoas"
                         min="1"
                         max="20"
+                        placeholder="Informe a quantidade de pessoas"
                         value={quantidadePessoas} 
                         onChange={(e) => setQuantidadePessoas(e.target.value)} 
                         required 
@@ -51,6 +53,7 @@ function TablePage() {
                     <input 
                         type="text" 
                         id="localizacao" 
+                        placeholder="Informe a localização da mesa"
                         value={localizacao} 
                         onChange={(e) => setLocalizacao(e.target.value)} 
                         required 

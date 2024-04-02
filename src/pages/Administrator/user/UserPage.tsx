@@ -21,7 +21,7 @@ function UserPage() {
 
     return (
         <div className="container">
-            <h2>Cadastro de Usuário</h2>
+            <h2>Cadastro de Cliente</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="nome">Nome:</label>
@@ -29,7 +29,7 @@ function UserPage() {
                         type="text" 
                         id="nome" 
                         name="nome" 
-                        placeholder='Insira o nome'
+                        placeholder='Informe o nome'
                         value={nome} 
                         onChange={(e) => setNome(e.target.value)}
                         required 
@@ -41,7 +41,7 @@ function UserPage() {
                         type="text" 
                         id="sobrenome" 
                         name="sobrenome"
-                        placeholder='Insira o sobrenome'
+                        placeholder='Informe o sobrenome'
                         value={sobrenome} 
                         onChange={(e) => setSobrenome(e.target.value)} 
                         required 
@@ -53,7 +53,7 @@ function UserPage() {
                         type="tel" 
                         id="telefone" 
                         name="telefone" 
-                        placeholder='Insira o número de telefone'
+                        placeholder='Informe o número de telefone'
                         value={telefone} 
                         onChange={(e) => setTelefone(e.target.value)} 
                         required 

@@ -1,0 +1,11 @@
+/* MenuPage.css */
+.menuPage {
+    max-width: 100%;
+    padding: 20px;
+}
+
+.menuItems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cada linha terá 3 itens */
+    gap: 20px;
+}

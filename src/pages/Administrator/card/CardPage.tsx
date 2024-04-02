@@ -28,7 +28,7 @@ function CardPage() {
                     <input 
                         type="text" 
                         id="numeroComanda" 
-                        placeholder="Insira o número da comanda"
+                        placeholder="Informe o número da comanda"
                         value={numeroComanda} 
                         onChange={(e) => setNumeroComanda(e.target.value)} 
                         required 
