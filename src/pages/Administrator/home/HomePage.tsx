@@ -5,7 +5,7 @@ function HomePage() {
     return (
         <div className="container">
             <header>
-                <h1>Bem-vindo à Página Inicial!</h1>
+                <h1>Sejam Bem-vindos!</h1>
             </header>
             <main>
                 <section className="destaque">
