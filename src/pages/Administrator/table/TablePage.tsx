@@ -4,7 +4,7 @@ import './TablePage.js';
 
 function TablePage() {
     const [numeroMesa, setNumeroMesa] = useState('');
-    var [quantidadePessoas, setQuantidadePessoas] = useState('');
+    const [quantidadePessoas, setQuantidadePessoas] = useState('');
     const [localizacao, setLocalizacao] = useState('');
 
     const handleSubmit = (e) => {
@@ -18,6 +18,33 @@ function TablePage() {
         setNumeroMesa('');
         setQuantidadePessoas('');
         setLocalizacao('');
+
+        const url = "https://localhost:7227/api/Table";
+
+        const data = {
+            "tableId": 0,
+            "tableNumber": numeroMesa,
+            "tableStatus": 3,
+            "insideLocation": localizacao
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Solicitação POST bem-sucedida');
+                } else {
+                    console.error('Erro na solicitação POST');
+                }
+            })
+            .catch(error => {
+                console.error('Erro durante a solicitação POST:', error);
+            });
     }
 
     return (
@@ -26,37 +53,35 @@ function TablePage() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="numeroMesa">Número da Mesa:</label>
-                    <input 
-                        type="text" 
-                        id="numeroMesa" 
-                        placeholder="Informe o numero da mesa"
-                        value={numeroMesa} 
-                        onChange={(e) => setNumeroMesa(e.target.value)} 
-                        required 
+                    <input
+                        type="text"
+                        id="numeroMesa"
+                        placeholder="Informe o número da mesa"
+                        value={numeroMesa}
+                        onChange={(e) => setNumeroMesa(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="quantidadePessoas">Quantidade de Pessoas:</label>
-                    <input 
-                        type="number" 
+                    <label htmlFor="quantidadePessoas">Status da mesa:</label>
+                    <select
                         id="quantidadePessoas"
-                        min="1"
-                        max="20"
-                        placeholder="Informe a quantidade de pessoas"
-                        value={quantidadePessoas} 
-                        onChange={(e) => setQuantidadePessoas(e.target.value)} 
-                        required 
-                    />
+                        value={quantidadePessoas}
+                        onChange={(e) => setQuantidadePessoas(e.target.value)}
+                        required
+                    >
+                        <option value=""></option>
+                    </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="localizacao">Localização:</label>
-                    <input 
-                        type="text" 
-                        id="localizacao" 
+                    <input
+                        type="text"
+                        id="localizacao"
                         placeholder="Informe a localização da mesa"
-                        value={localizacao} 
-                        onChange={(e) => setLocalizacao(e.target.value)} 
-                        required 
+                        value={localizacao}
+                        onChange={(e) => setLocalizacao(e.target.value)}
+                        required
                     />
                 </div>
                 <button type="submit" className="btn-submit">Cadastrar</button>

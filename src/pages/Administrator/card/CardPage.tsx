@@ -46,9 +46,6 @@ function CardPage() {
                         required 
                     />
                     <datalist id="clientes">
-                        <option value="Cliente 1" />
-                        <option value="Cliente 2" />
-                        <option value="Cliente 3" />
                     </datalist>
                 </div>
                 <div className="form-group">
@@ -63,9 +60,6 @@ function CardPage() {
                         required 
                     />
                     <datalist id="mesas">
-                        <option value="Mesa 1" />
-                        <option value="Mesa 2" />
-                        <option value="Mesa 3" />
                     </datalist>
                 </div>
                 <button type="submit" className="btn-submit">Confirmar</button>

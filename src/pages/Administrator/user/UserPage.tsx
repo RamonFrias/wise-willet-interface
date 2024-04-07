@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './UserPage.css';
-import './UserPage.js';
 
 function UserPage() {
     const [nome, setNome] = useState('');
@@ -15,8 +14,36 @@ function UserPage() {
         console.log('Telefone:', telefone);
         // Limpar os campos após o envio
         setNome('');
-        setSobrenome('');
+        setSobrenome(''); 
         setTelefone('');
+
+        const fullName = `${nome} ${sobrenome}`;
+        const url = "https://localhost:7227/api/Client";
+
+        const data = {
+            "clientId": 0,
+            "clientName": fullName,
+            "clientCPF": "5678726387",
+            "clephoneNumber": telefone
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            })
+            .then(response => {
+            if (response.ok) {
+                console.log('Solicitação POST bem-sucedida');
+            } else {
+                console.error('Erro na solicitação POST');
+            }
+            })
+            .catch(error => {
+            console.error('Erro durante a solicitação POST:', error);
+            });
     }
 
     return (
