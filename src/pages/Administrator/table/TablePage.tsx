@@ -2,6 +2,28 @@ import React, { useState } from 'react';
 import './TablePage.css';
 import './TablePage.js';
 
+function exibirMensagem(mensagem) {
+    const mensagemElemento = document.createElement('div');
+    mensagemElemento.textContent = mensagem;
+    mensagemElemento.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    `;
+
+    document.body.appendChild(mensagemElemento);
+
+    setTimeout(() => {
+        document.body.removeChild(mensagemElemento);
+    }, 3000);
+}
+
 function TablePage() {
     const [numeroMesa, setNumeroMesa] = useState('');
     const [quantidadePessoas, setQuantidadePessoas] = useState('');
@@ -9,22 +31,25 @@ function TablePage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Aqui você pode implementar a lógica para enviar os dados da mesa
-        console.log('Número da Mesa:', numeroMesa);
-        console.log('Quantidade de Pessoas:', quantidadePessoas);
-        console.log('Localização:', localizacao);
-
-        // Limpar os campos após o envio
         setNumeroMesa('');
         setQuantidadePessoas('');
         setLocalizacao('');
 
         const url = "https://localhost:7227/api/Table";
 
+        var statusMesa = 0;
+
+        if(quantidadePessoas === "Reservada") {
+            statusMesa = 4;
+        }
+        else {
+            statusMesa = 5;
+        }
+
         const data = {
             "tableId": 0,
             "tableNumber": numeroMesa,
-            "tableStatus": 3,
+            "tableStatus": statusMesa,
             "insideLocation": localizacao
         };
 
@@ -37,13 +62,13 @@ function TablePage() {
         })
             .then(response => {
                 if (response.ok) {
-                    console.log('Solicitação POST bem-sucedida');
+                    exibirMensagem("Mesa cadastrada com sucesso!");
                 } else {
-                    console.error('Erro na solicitação POST');
+                    exibirMensagem("Erro ao cadastrar a mesa!");
                 }
             })
             .catch(error => {
-                console.error('Erro durante a solicitação POST:', error);
+                exibirMensagem("Erro ao enviar os dados");
             });
     }
 
@@ -70,7 +95,12 @@ function TablePage() {
                         onChange={(e) => setQuantidadePessoas(e.target.value)}
                         required
                     >
-                        <option value=""></option>
+                        <option value="Disponível">
+                            Disponível
+                        </option>
+                        <option value="Reservada">
+                            Reservada
+                        </option>
                     </select>
                 </div>
                 <div className="form-group">

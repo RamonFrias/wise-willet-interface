@@ -1,6 +1,28 @@
 import React, { useState } from 'react';
 import './UserPage.css';
 
+function exibirMensagem(mensagem) {
+    const mensagemElemento = document.createElement('div');
+    mensagemElemento.textContent = mensagem;
+    mensagemElemento.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    `;
+
+    document.body.appendChild(mensagemElemento);
+
+    setTimeout(() => {
+        document.body.removeChild(mensagemElemento);
+    }, 3000);
+}
+
 function UserPage() {
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
@@ -8,11 +30,6 @@ function UserPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Aqui você pode implementar a lógica para enviar os dados do usuário
-        console.log('Nome:', nome);
-        console.log('Sobrenome:', sobrenome);
-        console.log('Telefone:', telefone);
-        // Limpar os campos após o envio
         setNome('');
         setSobrenome(''); 
         setTelefone('');
@@ -35,14 +52,14 @@ function UserPage() {
             body: JSON.stringify(data)
             })
             .then(response => {
-            if (response.ok) {
-                console.log('Solicitação POST bem-sucedida');
-            } else {
-                console.error('Erro na solicitação POST');
-            }
+                if (response.ok) {
+                    exibirMensagem("Usuário cadastrado com sucesso!");
+                } else {
+                    exibirMensagem("Erro ao cadastrar o usuário!");
+                }
             })
             .catch(error => {
-            console.error('Erro durante a solicitação POST:', error);
+                exibirMensagem("Erro ao enviar os dados!")
             });
     }
 

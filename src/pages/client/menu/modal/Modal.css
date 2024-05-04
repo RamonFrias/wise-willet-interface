@@ -1,0 +1,56 @@
+.modalOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* fundo cinza escurecido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 80%; /* largura da modal */
+    max-width: 400px; /* largura máxima da modal */
+    height: auto; /* altura automática (ajustável pelo conteúdo) */
+    overflow-y: auto; /* adicionar barra de rolagem vertical se necessário */
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.quantityControl button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.modalActions button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.modalActions button:first-child {
+    background-color: gray;
+}

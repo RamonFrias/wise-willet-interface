@@ -10,7 +10,7 @@ function HeaderClient() {
                 <ul>
                     <li><a href="consultar_comanda">Consultar comanda</a></li>
                     <li><a href="consultar_cardapio">Consultar cardápio</a></li>
-                    <li><a href="gerar_conta">Gerar conta para pagar</a></li>
+                    <li><a href="gerar_conta">Pagar conta</a></li>
                 </ul>
             </nav>
             <div className="user-info">

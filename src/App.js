@@ -8,7 +8,7 @@ import CardPage from "./pages/Administrator/card/CardPage.tsx";
 import MenuPage from "./pages/client/menu/menu.tsx";
 
 function App() {
-  const isAdmin = true;
+  const isAdmin = false;
   return (
     <BrowserRouter>
         {isAdmin ? <HeaderAdmin /> : <HeaderClient />}
