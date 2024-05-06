@@ -14,7 +14,6 @@ function HomePage() {
                         <ul>
                             <li>Produtos de alta qualidade</li>
                             <li>Excelente atendimento ao cliente</li>
-                            <li>Entrega rápida e segura</li>
                         </ul>
                     </div>
                 </section>

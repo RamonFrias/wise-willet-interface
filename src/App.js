@@ -6,6 +6,7 @@ import UserPage from "./pages/Administrator/user/UserPage.tsx";
 import TablePage from "./pages/Administrator/table/TablePage.tsx";
 import CardPage from "./pages/Administrator/card/CardPage.tsx";
 import MenuPage from "./pages/client/menu/menu.tsx";
+import AccountPage from "./pages/client/account/account.tsx";
 import CardPageClient from "./pages/client/card/card.tsx";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             <Route path="/cadastrar_comanda" element={<CardPage/>}/>
             <Route path="/consultar_comanda" element={<CardPageClient/>}/>
             <Route path="/consultar_cardapio" element={<MenuPage/>}/>
-            <Route path="/gerar_conta" element={<CardPage/>}/>
+            <Route path="/gerar_conta" element={<AccountPage/>}/>
         </Routes>
     </BrowserRouter>
   );
