@@ -37,7 +37,7 @@ function verifyItemImageUrl(itemName) {
         case "Tacos":
             return Taco;
             
-        case "Peixe grelhado":
+        case "Peixe Grelhado":
             return Peixe;
 
         case "Torta de limão":
