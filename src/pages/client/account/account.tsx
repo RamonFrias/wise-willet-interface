@@ -27,7 +27,7 @@ const ShoppingList = () => {
   const calculateTotal = () => {
     let total = 0.00;
     items.forEach(item => {
-      total += item.itemQuantity * item.itemPrice;
+      total += item.itemPrice;
     });
     return parseFloat(total).toFixed(2); // Arredonda o total para 2 casas decimais
   };
@@ -49,8 +49,8 @@ const ShoppingList = () => {
             <tr key={index}>
               <td>{item.itemName}</td>
               <td>{item.itemQuantity}</td>
-              <td>{item.itemPrice}</td>
-              <td>{parseFloat(item.itemQuantity * item.itemPrice).toFixed(2)}</td>
+              <td>{parseFloat(item.itemPrice / item.itemQuantity).toFixed(2)}</td>
+              <td>{parseFloat(item.itemPrice).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
