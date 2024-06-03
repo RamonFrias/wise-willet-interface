@@ -6,7 +6,7 @@ const ShoppingList = () => {
 
   useEffect(() => {
     const cardId = 1;
-    const url = `https://localhost:7227/api/Item/get_itens${cardId}`;
+    const url = `https://wisewallet-api.azurewebsites.net/api/Item/get_itens${cardId}`;
 
     fetch(url)
       .then(response => {
